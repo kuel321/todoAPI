@@ -17,10 +17,10 @@ namespace ToDoAPI.Controllers
         public HttpResponseMessage Get() //GET METHOD
         {
             string query = @"
-            select ToDoId,TodoDescription from 
-             dbo.ToDo";
+            select todoID,todoName from 
+             dbo.todo";
             DataTable table = new DataTable();
-            using(var con= new SqlConnection(ConfigurationManager.
+            using(var con = new SqlConnection(ConfigurationManager.
                 ConnectionStrings["ToDoAppDB"].ConnectionString))
             using (var cmd = new SqlCommand(query, con))
                 using (var da= new SqlDataAdapter(cmd))
@@ -38,8 +38,8 @@ namespace ToDoAPI.Controllers
             try
             {
                 string query = @"
-                 insert into dbo.ToDo values
-                 ('" + todo.TodoDescription + @"')
+                 insert into dbo.todo values
+                 ('" + todo.todoName + @"')
                  ";
 
                 
@@ -69,9 +69,9 @@ namespace ToDoAPI.Controllers
             try
             {
                 string query = @"
-                  update dbo.ToDo set TodoDescription=
-                 '" + todo.TodoDescription + @"'
-                 where ToDoId=" + todo.ToDoId + @"
+                  update dbo.todo set todoName=
+                 '" + todo.todoName + @"'
+                 where todoID=" + todo.todoID + @"
                  ";
 
 
@@ -100,8 +100,8 @@ namespace ToDoAPI.Controllers
             try
             {
                 string query = @"
-                  delete from dbo.ToDo 
-                 where ToDoId=" + id + @"
+                  delete from dbo.todo 
+                 where todoID=" + id + @"
                  ";
 
 

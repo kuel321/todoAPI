@@ -8,7 +8,7 @@ namespace ToDoAPI.Models
 {
     public class ToDo
     {
-        public int ToDoId { get; set; }
-        public string TodoDescription { get; set; }
+        public int todoID { get; set; }
+        public string todoName { get; set; }
     }
 }
